@@ -16,7 +16,8 @@ for p_class in data.Pclass.unique():
 names = []
 values = []
 for val in data.Sex.unique():
-    names.append(val)
+    names.append(str(val) + ' : ' + str(int(data[(data.Sex == val) & (data.Survived == 1)].Sex.count()/
+                 data[(data.Sex == val)].Sex.count()*100)) + ' %')
     values.append(data[(data.Sex == val) & (data.Survived == 1)].Sex.count()/data[(data.Sex == val)].Sex.count()*100)
 values = np.array(values)
 
@@ -30,7 +31,8 @@ plt.bar(names, values)
 names = []
 values = []
 for val in data.Pclass.unique():
-    names.append(str(val)+' класс')
+    names.append(str(val)+' класс : ' + str(int(data[(data.Pclass == val) & (data.Survived == 1)].Pclass.count()/
+                 data[(data.Pclass == val)].Pclass.count()*100)) + ' %')
     values.append(data[(data.Pclass == val) & (data.Survived == 1)].Pclass.count()/data[(data.Pclass == val)].Pclass.count()*100)
 values = np.array(values)
 
