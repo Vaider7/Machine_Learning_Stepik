@@ -17,25 +17,27 @@ names = []
 values = []
 for val in data.Sex.unique():
     names.append(val)
-    values.append(data[(data.Sex == val) & (data.Survived == 1)].Sex.count()/data[(data.Sex == val)].Sex.count())
+    values.append(data[(data.Sex == val) & (data.Survived == 1)].Sex.count()/data[(data.Sex == val)].Sex.count()*100)
 values = np.array(values)
 
-plt.figure(figsize=(10, 6))
-plt.subplot(1, 3, 1)
-plt.ylabel('survive ratio')
-plt.ylim(0, 1)
+plt.figure(figsize=(14, 10))
+plt.subplot(2, 2, 1)
+plt.title('Пол')
+plt.ylabel('Соотношение выживших, %')
+plt.ylim(0, 100)
 plt.bar(names, values)
 
 names = []
 values = []
 for val in data.Pclass.unique():
-    names.append(str(val)+' class')
-    values.append(data[(data.Pclass == val) & (data.Survived == 1)].Pclass.count()/data[(data.Pclass == val)].Pclass.count())
+    names.append(str(val)+' класс')
+    values.append(data[(data.Pclass == val) & (data.Survived == 1)].Pclass.count()/data[(data.Pclass == val)].Pclass.count()*100)
 values = np.array(values)
 
-plt.subplot(1, 3, 2)
-plt.ylabel('survive ratio')
-plt.ylim(0, 1)
+plt.subplot(2, 2, 2)
+plt.title('Пассажирский класс')
+plt.ylabel('Соотношение выживших, %')
+plt.ylim(0, 100)
 plt.bar(names, values)
 
 
@@ -43,13 +45,16 @@ names = []
 values = []
 for val in data.Age.unique():
     names.append(val)
-    values.append(data[(data.Age == val) & (data.Survived == 1)].Age.count()/data[(data.Age == val)].Age.count())
+    values.append(data[(data.Age == val) & (data.Survived == 1)].Age.count()/data[(data.Age == val)].Age.count()*100)
 values = np.array(values)
 
-plt.subplot(1, 3, 3)
-plt.ylabel('survive ratio')
-plt.ylim(0, 1)
-plt.hist((names, values), 90)
+plt.subplot(2, 1, 2)
+plt.title('Возраст')
+plt.ylabel('Соотношение выживших, %')
+# plt.figure(figsize=(12, 6))
+plt.ylim(0, 100)
+plt.bar(names, values)
+plt.suptitle('Соотношение выживших к погибшим')
 plt.show()
 
 mu, sigma = 100, 15
