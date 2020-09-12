@@ -58,8 +58,3 @@ plt.ylim(0, 100)
 plt.bar(names, values)
 plt.suptitle('Соотношение выживших к погибшим')
 plt.show()
-
-mu, sigma = 100, 15
-x = mu + sigma*np.random.randn(10000)
-print('Доля выживших мужчин равна:', data[(data.Sex == 'male')&(data.Survived == 1)].Sex.count()/data.Sex.value_counts().male)
-print('Доля выживших женщин равна:', data[(data.Sex == 'female')&(data.Survived == 1)].Sex.count()/data.Sex.value_counts().female)

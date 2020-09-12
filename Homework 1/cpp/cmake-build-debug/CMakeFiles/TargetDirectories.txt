@@ -1,0 +1,3 @@
+C:/programming/AI/Stepik/Machine_Learning_Stepik/Homework 1/cpp/cmake-build-debug/CMakeFiles/cpp.dir
+C:/programming/AI/Stepik/Machine_Learning_Stepik/Homework 1/cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/programming/AI/Stepik/Machine_Learning_Stepik/Homework 1/cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
