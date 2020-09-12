@@ -11,7 +11,7 @@ int main() {
         variables[i] = 0;
         std::cin >> variables[i];
     }
-    int min_list[3];
+    int min_list[3] = {variables[0], variables[1], variables[2]};
     double min_dif = std::fabs (X - variables[0] - variables[1] - variables[2]);
     for(int i = 0; i<N;i++){
         for(int j=0; j<N; j++){
