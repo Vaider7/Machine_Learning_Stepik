@@ -45,13 +45,14 @@ print('Доля выживших мужчин равна:', data[(data.Sex == 'm
 print('Доля выживших женщин равна:', data[(data.Sex == 'female')&(data.Survived == 1)].Sex.count()/data.Sex.value_counts().female)
 
 
-ages = {'0-18': [],
-        '19-30': [],
-        '31-40': [],
-        '41-50': [],
-        '51-60': [],
-        '61-70': [],
-        '71-80': [],
+ages = {
+    '0-18': [],
+    '19-30': [],
+    '31-40': [],
+    '41-50': [],
+    '51-60': [],
+    '61-70': [],
+    '71-80': [],
 }
 
 
@@ -72,12 +73,34 @@ for age in data.Age.to_numpy():
         ages['71-80'].append(age)
 
 
+ages_check = {
+    '18-30': [i for i in range(0, 19)],
+    '19-30': [],
+    '31-40': [],
+    '41-50': [],
+    '51-60': [],
+    '61-70': [],
+    '71-80': [],
+}
+
+id_member = []
+
+for val in data.Age.to_numpy():
+    if val == None:
+        pass
+    elif data[(data.Age == val) & (data.Survived == 1)]:
+        data[(data.Age == val) & (data.Survived == 1)].PassengerId.count()
+
+print(data[(data.Age == 18.0) & (data.Survived == 1)])
+
 ages_numpy = []
 
 ages_name = ['0-18', '19-30', '31-40', '41-50', '51-60', '61-70', '71-80']
 
 for i in ages:
     ages_numpy.append(len(ages[i]))
+
+
 
 plt.subplot(2, 1, 1)
 plt.bar(ages_name, ages_numpy)
